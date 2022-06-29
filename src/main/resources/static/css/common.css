@@ -1,0 +1,25 @@
+body {
+    margin-bottom: 30px;
+    padding-block: 10px;
+}
+li {
+    list-style-type: none;
+    float: left;
+    margin-left: 10px;
+}
+button {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+div {
+    margin-right: 10px;
+}
+.custarea {
+    clear:both;
+    width: 600px;
+    height: 300px;
+    border: 1px solid black;
+    margin-left: 100px;
+    padding-left: 10px;
+    padding-top: 10px;
+}

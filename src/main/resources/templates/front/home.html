@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/operation.js"></script>
+</head>
+<body>
+<hr>
+<h2>파일 확장자 차단</h2>
+<hr>
+<h4>파일확장자에 따라 특정 형식의 파일을 첨부하거나 전송하지 못하도록 제한</h4></br>
+<div style="float: left;">고정 확장자</div>
+<div style="float: left;">
+    <li class="favili" th:each="item : ${favoriteExts}">
+        <th:block th:if="${item.faviExtUseYn == 'Y'}">
+        <input type="checkbox" th:id="${item.faviExt}" checked th:value="${item.faviExt}" class="favicheck">[[${item.faviExt}]]
+        </th:block>
+        <th:block th:unless="${item.faviExtUseYn == 'Y'}">
+            <input type="checkbox" th:id="${item.faviExt}" th:value="${item.faviExt}" class="favicheck">[[${item.faviExt}]]
+        </th:block>
+    </li>
+</div>
+<div style="clear:both"/>
+<div style="float: left;">커스텀 확장자</div>
+<div style="float: left;">
+    <input id="custext" type="text" placeholder="확장자 입력" maxlength="20">
+    <button id="custext-add" name="custext-add">추가</button>
+</div>
+<br/>
+<div id="custext-area" class="custarea">
+    [[${customExtCount}]]/200<br/><br/>
+    <button class="custlibtn" th:each="dto : ${customExts}" th:id="${dto.custExt}">[[${dto.custExt}]] X</button>
+</div>
+</body>
+</html>
